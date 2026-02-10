@@ -4,96 +4,332 @@
   <meta charset="UTF-8">
   <title>Friendship Day 💛</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
   <!-- Bootstrap CDN -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     rel="stylesheet"
   >
 
-  <style>
-    body {
-      height: 100vh;
-      background: linear-gradient(135deg, #ffecd2, #fcb69f);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', sans-serif;
-    }
+<style>
+  body {
+    height: 100vh;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: url(assets/yellow.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  /* 📱 Mobile Optimizations */
+@media (max-width: 480px) {
+  .card-box {
+    padding: 28px;
+    border-radius: 20px;
+    max-width: 350px !important;
+    max-width: 92%;
+  }
 
-    .card-box {
-      background: #fff;
-      border-radius: 20px;
-      padding: 40px;
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    }
+  h1 {
+    font-size: 1.4rem;
+  }
 
-    .hidden {
-      display: none;
-    }
+  h4 {
+    font-size: 1.1rem;
+  }
 
-    .btn-yes {
-      background-color: #28a745;
-      color: #fff;
-    }
+  h6 {
+    font-size: 0.9rem;
+  }
 
-    .btn-no {
-      position: absolute;
-    }
+  .btn-yes,
+  .btn-no {
+    font-size: 16px;
+    padding: 10px 22px;
+  }
 
-    .stage {
-      position: relative;
-      height: 150px;
-      margin-top: 30px;
-    }
+  .stage {
+    height: 190px;
+  }
+}
 
-    h1 span {
-      animation: pulse 1.5s infinite;
-      display: inline-block;
-    }
+/* Prevent button text selection on mobile */
+button {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+ 
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-  </style>
+/* Selects the second element of div siblings */
+.card-box .glass_card:nth-child(3) {
+  width: 1200px;
+  height: 500px;
+}
+
+.card-box .glass_card:nth-child(1) {
+  width: 500px;
+    height: 250px;
+ 
+}
+
+.card-box .glass_card:nth-child(2) {
+  width: 600px;
+    height: 300px;
+ 
+}
+
+ 
+
+  .card-box {
+/*    background: #fff;*/
+    border-radius: 25px;
+    padding: 0px;
+
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    animation: fadeIn 0.6s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* YES button */
+  .btn-yes {
+    background: linear-gradient(135deg, #28a745, #6ddf8b);
+    color: #fff;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 18px;
+    box-shadow: 0 10px 25px rgba(40,167,69,0.4);
+    animation: pulse 1.5s infinite;
+    transition: transform 0.2s;
+  }
+
+  .btn-yes:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(40,167,69,0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(40,167,69,0); }
+    100% { box-shadow: 0 0 0 0 rgba(40,167,69,0); }
+  }
+
+  /* NO button */
+.btn-no {
+  position: absolute;
+  border-radius: 50px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              left 0.35s ease,
+              top 0.35s ease;
+  will-change: transform, left, top;
+}
+
+  .stage {
+    position: relative;
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  h1 span {
+    animation: heartbeat 1.5s infinite;
+  }
+
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  /* Celebration text */
+  .celebrate {
+    animation: pop 0.6s ease;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+
+  .glass_card {
+     /* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+padding: 20px;
+    
+  }
+
+
+
+  .glass_card1 {
+     /* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+padding: 20px;
+    
+  }
+
+  .glass_card h1,h2,h3,h4,h5,h6,p {
+    color: white;
+
+  }
+
+  .elite-start-btn{
+  position: relative;
+  padding: 14px 42px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg,#ff8a00,#ff2d55,#7f00ff);
+  background-size: 300% 300%;
+  animation: gradientMove 5s ease infinite;
+  box-shadow:
+    0 12px 30px rgba(255,45,85,.45),
+    inset 0 0 10px rgba(255,255,255,.3);
+  overflow: hidden;
+  transition: transform .25s ease;
+}
+
+.elite-start-btn:hover{
+  transform: scale(1.08);
+}
+
+/* shimmer line */
+.elite-start-btn::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-75%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.7),
+    transparent
+  );
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer{
+  100%{left:125%}
+}
+
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+</style>
+
 </head>
 
 <body>
 
+
+  <div
+  id="wrongAlert"
+  style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    display: none;
+    z-index: 9999;
+    animation: fadeSlide 0.4s ease;
+  "
+>
+  😢 Wrong name da <br>
+  Only <b>Arun</b> allowed 💔
+</div>
+
+
 <div class="card-box">
 
+  <!-- Screen 0 : Name Check -->
+<div id="nameScreen" class="glass_card" >
+  <h4>👀 Enter your name</h4>
+  <p class="mb-3">Only special people allowed 😌</p>
+
+  <input
+    type="text"
+    id="nameInput"
+    class="form-control text-center mb-3"
+    placeholder="Type your name..."
+  >
+
+  <button class="elite-start-btn" onclick="checkName()">
+    Enter 🚪
+  </button>
+</div>
+
   <!-- Screen 1 -->
-  <div id="startScreen">
+  <div id="startScreen" class="glass_card hidden">
     <h1>💛 Happy Friendship Day 💛</h1>
     <p class="mt-3">Click start for a small surprise 😄</p>
-    <button class="btn btn-primary mt-3" onclick="start()">⭐ Start</button>
+   <button class="elite-start-btn mt-3" onclick="start()">
+  <span>💖 Start</span>
+</button>
   </div>
 
   <!-- Screen 2 -->
-  <div id="questionScreen" class="hidden">
+  <div id="questionScreen" class="hidden glass_card">
     <h4>Do you accept my friendship request? 🤝💖</h4>
+    <h6>If you Feeling Shy Click No <h6>
 
-    <div class="stage">
+
+    <div class="stage glass_card1">
       <button class="btn btn-yes px-4" onclick="yesClick()">YES 😊</button>
       <button class="btn btn-danger btn-no px-3" id="noBtn">NO 😈</button>
     </div>
   </div>
 
   <!-- Screen 3 -->
-  <div id="resultScreen" class="hidden">
+  <div id="resultScreen" class="hidden glass_card">
     <h2>🎉 Good Choice! 🎉</h2>
     <h4 class="mt-2">Forever Friends 💖♾️</h4>
+    <img src="assets/frd.gif">
     <p class="mt-3">Thank you for accepting my friendship 😄</p>
   </div>
 
 </div>
 
-<script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+<script>
   function start() {
     document.getElementById('startScreen').classList.add('hidden');
     document.getElementById('questionScreen').classList.remove('hidden');
@@ -101,12 +337,32 @@
 
   function yesClick() {
     document.getElementById('questionScreen').classList.add('hidden');
-    document.getElementById('resultScreen').classList.remove('hidden');
-  }
-  const noBtn = document.getElementById('noBtn');
-  const stage = document.querySelector('.stage');
+    const result = document.getElementById('resultScreen');
+    result.classList.remove('hidden');
+    result.classList.add('celebrate');
 
-  const escapeDistance = 80; // px → how close mouse can come
+    // 🎉 CONFETTI BLAST
+    confetti({
+      particleCount: 150,
+      spread: 90,
+      origin: { y: 0.6 }
+    });
+
+    setTimeout(() => {
+      confetti({
+        particleCount: 120,
+        spread: 120,
+        origin: { y: 0.7 }
+      });
+    }, 400);
+  }
+
+    const noBtn = document.getElementById('noBtn');
+  const stage = document.querySelector('.stage');
+  const yesBtn = document.querySelector('.btn-yes');
+
+ 
+const escapeDistance = 160; // detect earlier
 
   const noTexts = [
     "pls don’t 😭",
@@ -115,39 +371,115 @@
     "why like this 😢",
     "be nice 😇",
     "not fair 😤",
-    "click YES da 😆"
+    "click YES da 😆",
+      "ayyayo 😵‍💫",
+  "heart break da 💔",
+  "en mela karunai illa? 🥲",
+  "intha aniyayam venam 😤",
+  "sirippu varuthu 😅",
+  "last warning 😎",
+  "naan romba nallavan 😇",
+  "ok ok… one more chance 🙏",
+  "YES press pannala na naan saapida maten 😭🍽️",
+  "machine learning kooda YES solum 🤖😂",
+  "intha button romba kashtam pola 😏",
+  "escape route illa 😈",
+  "fate already decided 😌"
   ];
   let textIndex = 0;
 
-  stage.addEventListener('mousemove', (e) => {
-    const btnRect = noBtn.getBoundingClientRect();
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
+stage.addEventListener('mousemove', (e) => {
+  const btnRect = noBtn.getBoundingClientRect();
 
-    const btnX = btnRect.left + btnRect.width / 2;
-    const btnY = btnRect.top + btnRect.height / 2;
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
 
-    const distance = Math.hypot(mouseX - btnX, mouseY - btnY);
+  const btnX = btnRect.left + btnRect.width / 2;
+  const btnY = btnRect.top + btnRect.height / 2;
 
-    if (distance < escapeDistance) {
-      moveNoButton();
-    }
-  });
+  const distance = Math.hypot(mouseX - btnX, mouseY - btnY);
 
-  function moveNoButton() {
-    const maxX = stage.clientWidth - noBtn.offsetWidth;
-    const maxY = stage.clientHeight - noBtn.offsetHeight;
+  if (distance < escapeDistance) {
+    moveNoButtonWild();
+  }
+});
 
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
+function moveNoButtonWild() {
+  const stageRect = stage.getBoundingClientRect();
 
-    noBtn.style.left = randomX + 'px';
-    noBtn.style.top = randomY + 'px';
+  const maxX = stage.clientWidth - noBtn.offsetWidth;
+  const maxY = stage.clientHeight - noBtn.offsetHeight;
+
+  // random ANY direction (fast jump)
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.transition = 'none'; // instant teleport 😈
+  noBtn.style.left = x + 'px';
+  noBtn.style.top = y + 'px';
+
+  // restore smoothness after jump
+  setTimeout(() => {
+    noBtn.style.transition =
+      'transform 0.25s cubic-bezier(0.22,1,0.36,1), left 0.25s, top 0.25s';
+  }, 20);
+
+  noBtn.innerText = noTexts[textIndex];
+  textIndex = (textIndex + 1) % noTexts.length;
+}
+
+
+
+
+function checkName() {
+  const input = document.getElementById('nameInput').value.trim().toLowerCase();
+  const alertBox = document.getElementById('wrongAlert');
+
+  if (input === "arun") {
+    document.getElementById('nameScreen').classList.add('hidden');
+    document.getElementById('startScreen').classList.remove('hidden');
+  } else {
+    alertBox.style.display = 'block';
+
+    setTimeout(() => {
+      alertBox.style.display = 'none';
+    }, 2500);
+  }
+}
+
+  function moveNoButtonSafely() {
+    const stageRect = stage.getBoundingClientRect();
+    const yesRect = yesBtn.getBoundingClientRect();
+
+    let x, y, safe;
+
+    do {
+      x = Math.random() * (stage.clientWidth - noBtn.offsetWidth);
+      y = Math.random() * (stage.clientHeight - noBtn.offsetHeight);
+
+      const futureRect = {
+        left: stageRect.left + x,
+        right: stageRect.left + x + noBtn.offsetWidth,
+        top: stageRect.top + y,
+        bottom: stageRect.top + y + noBtn.offsetHeight
+      };
+
+      safe =
+        futureRect.right < yesRect.left - 20 ||
+        futureRect.left > yesRect.right + 20 ||
+        futureRect.bottom < yesRect.top - 20 ||
+        futureRect.top > yesRect.bottom + 20;
+
+    } while (!safe);
+
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
 
     noBtn.innerText = noTexts[textIndex];
     textIndex = (textIndex + 1) % noTexts.length;
   }
 </script>
+
 
 
 </body>
