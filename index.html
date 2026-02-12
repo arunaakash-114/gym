@@ -1,486 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Friendship Day 💛</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secret Unlock 💕</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-
-  <!-- Bootstrap CDN -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-  body {
-    height: 100vh;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#ff6a88,#ff99ac);
     font-family: 'Segoe UI', sans-serif;
-    background: url(assets/yellow.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  /* 📱 Mobile Optimizations */
-@media (max-width: 480px) {
-  .card-box {
-    padding: 28px;
-    border-radius: 20px;
-    max-width: 350px !important;
-    max-width: 92%;
-  }
-
-  h1 {
-    font-size: 1.4rem;
-  }
-
-  h4 {
-    font-size: 1.1rem;
-  }
-
-  h6 {
-    font-size: 0.9rem;
-  }
-
-  .btn-yes,
-  .btn-no {
-    font-size: 16px;
-    padding: 10px 22px;
-  }
-
-  .stage {
-    height: 190px;
-  }
+    overflow:hidden;
 }
 
-/* Prevent button text selection on mobile */
-button {
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
- 
-
-/* Selects the second element of div siblings */
-.card-box .glass_card:nth-child(3) {
-  width: 1200px;
-  height: 500px;
-}
-
-.card-box .glass_card:nth-child(1) {
-  width: 500px;
-    height: 250px;
- 
+/* Unlock Button */
+.love-unlock-btn-2026{
+    padding:16px 45px;
+    font-size:20px;
+    border:none;
+    border-radius:60px;
+    background:white;
+    color:#e91e63;
+    font-weight:bold;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:0.4s;
+    z-index:10;
 }
 
-.card-box .glass_card:nth-child(2) {
-  width: 600px;
-    height: 300px;
- 
+.love-unlock-btn-2026:hover{
+    transform:scale(1.05);
 }
 
- 
-
-  .card-box {
-/*    background: #fff;*/
-    border-radius: 25px;
-    padding: 0px;
-
-    text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    animation: fadeIn 0.6s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  /* YES button */
-  .btn-yes {
-    background: linear-gradient(135deg, #28a745, #6ddf8b);
-    color: #fff;
-    border-radius: 50px;
-    padding: 12px 30px;
-    font-size: 18px;
-    box-shadow: 0 10px 25px rgba(40,167,69,0.4);
-    animation: pulse 1.5s infinite;
-    transition: transform 0.2s;
-  }
-
-  .btn-yes:hover {
-    transform: scale(1.1);
-  }
-
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(40,167,69,0.6); }
-    70% { box-shadow: 0 0 0 15px rgba(40,167,69,0); }
-    100% { box-shadow: 0 0 0 0 rgba(40,167,69,0); }
-  }
-
-  /* NO button */
-.btn-no {
-  position: absolute;
-  border-radius: 50px;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-              left 0.35s ease,
-              top 0.35s ease;
-  will-change: transform, left, top;
+/* Effects */
+.love-effects{
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:5;
 }
 
-  .stage {
-    position: relative;
-    height: 300px;
-    margin-top: 30px;
-  }
-
-  h1 span {
-    animation: heartbeat 1.5s infinite;
-  }
-
-  @keyframes heartbeat {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-  }
-
-  /* Celebration text */
-  .celebrate {
-    animation: pop 0.6s ease;
-  }
-
-  @keyframes pop {
-    0% { transform: scale(0); opacity: 0; }
-    80% { transform: scale(1.2); }
-    100% { transform: scale(1); opacity: 1; }
-  }
-
-
-  .glass_card {
-     /* From https://css.glass */
-background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-padding: 20px;
-    
-  }
-
-
-
-  .glass_card1 {
-     /* From https://css.glass */
-background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-padding: 20px;
-    
-  }
-
-  .glass_card h1,h2,h3,h4,h5,h6,p {
-    color: white;
-
-  }
-
-  .elite-start-btn{
-  position: relative;
-  padding: 14px 42px;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  background: linear-gradient(135deg,#ff8a00,#ff2d55,#7f00ff);
-  background-size: 300% 300%;
-  animation: gradientMove 5s ease infinite;
-  box-shadow:
-    0 12px 30px rgba(255,45,85,.45),
-    inset 0 0 10px rgba(255,255,255,.3);
-  overflow: hidden;
-  transition: transform .25s ease;
+.heart, .balloon{
+    position:absolute;
 }
 
-.elite-start-btn:hover{
-  transform: scale(1.08);
+.heart{
+    font-size:22px;
+    animation:floatUp linear forwards;
 }
 
-/* shimmer line */
-.elite-start-btn::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:-75%;
-  width:50%;
-  height:100%;
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,.7),
-    transparent
-  );
-  animation: shimmer 2.5s infinite;
+.balloon{
+    font-size:28px;
+    animation:balloonRise linear forwards;
 }
 
-@keyframes shimmer{
-  100%{left:125%}
+@keyframes floatUp{
+    0%{transform:translateY(100vh) scale(0.6);opacity:1;}
+    100%{transform:translateY(-10vh) scale(1.2);opacity:0;}
 }
 
-
-@keyframes fadeSlide {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes balloonRise{
+    0%{transform:translateY(100vh);opacity:1;}
+    100%{transform:translateY(-10vh);opacity:0;}
 }
-@keyframes gradientMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+
+.confetti{
+    position:absolute;
+    width:8px;
+    height:8px;
+    animation:confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall{
+    0%{transform:translateY(-10px);opacity:1;}
+    100%{transform:translateY(100vh);opacity:0;}
+}
+
+/* Envelope */
+.love-envelope{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:220px;
+    height:140px;
+    background:#ff4d88;
+    border-radius:10px;
+    cursor:pointer;
+    z-index:2000;
+    animation:popIn 0.4s ease;
+}
+
+.love-envelope::before{
+    content:"";
+    position:absolute;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-bottom:70px solid #ff80aa;
+    top:-70px;
+    left:0;
+    transition:0.6s;
+}
+
+.love-envelope.open::before{
+    transform:rotateX(180deg);
+    transform-origin:bottom;
+}
+
+@keyframes popIn{
+    from{transform:translate(-50%,-50%) scale(0.7);opacity:0;}
+    to{transform:translate(-50%,-50%) scale(1);opacity:1;}
+}
+
+/* Glass Modal */
+.modal-content{
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.3);
+    color:white;
+}
+
+.love-close-btn{
+    border-radius:30px;
+    padding:8px 25px;
+    background:#fff;
+    color:#e91e63;
+    font-weight:bold;
 }
 
 </style>
-
 </head>
-
 <body>
 
-
-  <div
-  id="wrongAlert"
-  style="
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(0,0,0,0.75);
-    color: #fff;
-    padding: 14px 20px;
-    border-radius: 12px;
-    font-size: 14px;
-    display: none;
-    z-index: 9999;
-    animation: fadeSlide 0.4s ease;
-  "
->
-  😢 Wrong name da <br>
-  Only <b>Arun</b> allowed 💔
-</div>
-
-
-<div class="card-box">
-
-  <!-- Screen 0 : Name Check -->
-<div id="nameScreen" class="glass_card" >
-  <h4>👀 Enter your name</h4>
-  <p class="mb-3">Only special people allowed 😌</p>
-
-  <input
-    type="text"
-    id="nameInput"
-    class="form-control text-center mb-3"
-    placeholder="Type your name..."
-  >
-
-  <button class="elite-start-btn" onclick="checkName()">
-    Enter 🚪
-  </button>
-</div>
-
-  <!-- Screen 1 -->
-  <div id="startScreen" class="glass_card hidden">
-    <h1>💛 Happy Friendship Day 💛</h1>
-    <p class="mt-3">Click start for a small surprise 😄</p>
-   <button class="elite-start-btn mt-3" onclick="start()">
-  <span>💖 Start</span>
+<button class="love-unlock-btn-2026" onclick="handleLoveUnlockClick()">
+💝 Unlock My Surprise 💕
 </button>
-  </div>
 
-  <!-- Screen 2 -->
-  <div id="questionScreen" class="hidden glass_card">
-    <h4>Do you accept my friendship request? 🤝💖</h4>
-    <h6>If you Feeling Shy Click No <h6>
+<div class="love-effects" id="loveEffects"></div>
+
+<!-- Countdown Modal -->
+<div class="modal fade" id="countdownModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content text-center p-4">
+<h4>⏳ Our Special Moment Is Coming 💖</h4>
+<h5>⏳ Surprise Unlocked at FEB 14 12.00 AM After💖</h5>
+<h6>⏳ Kindly Wait for Magical Moments💖</h6>
 
 
-    <div class="stage glass_card1">
-      <button class="btn btn-yes px-4" onclick="yesClick()">YES 😊</button>
-      <button class="btn btn-danger btn-no px-3" id="noBtn">NO 😈</button>
-    </div>
-  </div>
-
-  <!-- Screen 3 -->
-  <div id="resultScreen" class="hidden glass_card">
-    <h2>🎉 Good Choice! 🎉</h2>
-    <h4 class="mt-2">Forever Friends 💖♾️</h4>
-    <img src="assets/frd.gif">
-    <p class="mt-3">Thank you for accepting my friendship 😄</p>
-  </div>
-
+<div id="countdownText" class="mt-3"></div>
+<button class="btn love-close-btn mt-3" data-bs-dismiss="modal">Close 💕</button>
+</div>
+</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<!-- QR Modal -->
+<div class="modal fade" id="qrModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content text-center p-4">
+<h4>🎉 Surprise Unlocked 💖</h4>
+<p>Scan Me or Click Below</p>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://arun12334.github.io/valentine-gifts/" class="img-fluid">
+
+<a href="https://arun12334.github.io/valentine-gifts/" target="_blank" class="btn love-close-btn mt-3">
+Open My Surprise 💕
+</a>
+</div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  function start() {
-    document.getElementById('startScreen').classList.add('hidden');
-    document.getElementById('questionScreen').classList.remove('hidden');
-  }
 
-  function yesClick() {
-    document.getElementById('questionScreen').classList.add('hidden');
-    const result = document.getElementById('resultScreen');
-    result.classList.remove('hidden');
-    result.classList.add('celebrate');
-
-    // 🎉 CONFETTI BLAST
-    confetti({
-      particleCount: 150,
-      spread: 90,
-      origin: { y: 0.6 }
-    });
-
-    setTimeout(() => {
-      confetti({
-        particleCount: 120,
-        spread: 120,
-        origin: { y: 0.7 }
-      });
-    }, 400);
-  }
-
-    const noBtn = document.getElementById('noBtn');
-  const stage = document.querySelector('.stage');
-  const yesBtn = document.querySelector('.btn-yes');
-
+// 🔥 CHANGE THIS DATE FOR REAL USE
  
-const escapeDistance = 160; // detect earlier
+const loveUnlockDate2026 = new Date(2026, 1, 14, 0, 0, 0);
 
-  const noTexts = [
-    "pls don’t 😭",
-    "try it 🤭",
-    "i am pavam 🥺",
-    "why like this 😢",
-    "be nice 😇",
-    "not fair 😤",
-    "click YES da 😆",
-      "ayyayo 😵‍💫",
-  "heart break da 💔",
-  "en mela karunai illa? 🥲",
-  "intha aniyayam venam 😤",
-  "sirippu varuthu 😅",
-  "last warning 😎",
-  "naan romba nallavan 😇",
-  "ok ok… one more chance 🙏",
-  "YES press pannala na naan saapida maten 😭🍽️",
-  "machine learning kooda YES solum 🤖😂",
-  "intha button romba kashtam pola 😏",
-  "escape route illa 😈",
-  "fate already decided 😌"
-  ];
-  let textIndex = 0;
 
-stage.addEventListener('mousemove', (e) => {
-  const btnRect = noBtn.getBoundingClientRect();
+let countdownInterval;
 
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
+function handleLoveUnlockClick(){
+    const now = new Date();
 
-  const btnX = btnRect.left + btnRect.width / 2;
-  const btnY = btnRect.top + btnRect.height / 2;
-
-  const distance = Math.hypot(mouseX - btnX, mouseY - btnY);
-
-  if (distance < escapeDistance) {
-    moveNoButtonWild();
-  }
-});
-
-function moveNoButtonWild() {
-  const stageRect = stage.getBoundingClientRect();
-
-  const maxX = stage.clientWidth - noBtn.offsetWidth;
-  const maxY = stage.clientHeight - noBtn.offsetHeight;
-
-  // random ANY direction (fast jump)
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-
-  noBtn.style.transition = 'none'; // instant teleport 😈
-  noBtn.style.left = x + 'px';
-  noBtn.style.top = y + 'px';
-
-  // restore smoothness after jump
-  setTimeout(() => {
-    noBtn.style.transition =
-      'transform 0.25s cubic-bezier(0.22,1,0.36,1), left 0.25s, top 0.25s';
-  }, 20);
-
-  noBtn.innerText = noTexts[textIndex];
-  textIndex = (textIndex + 1) % noTexts.length;
+    if(now >= loveUnlockDate2026){
+        showEnvelope();
+    }else{
+        showCountdown();
+    }
 }
 
+function showCountdown(){
+    const modal = new bootstrap.Modal(document.getElementById('countdownModal'));
+    modal.show();
 
+    updateCountdown();
+    clearInterval(countdownInterval);
 
+    countdownInterval = setInterval(updateCountdown,1000);
+}
 
-function checkName() {
-  const input = document.getElementById('nameInput').value.trim().toLowerCase();
-  const alertBox = document.getElementById('wrongAlert');
+function updateCountdown(){
+    const now = new Date();
+    const diff = loveUnlockDate2026 - now;
 
-  if (input === "arun") {
-    document.getElementById('nameScreen').classList.add('hidden');
-    document.getElementById('startScreen').classList.remove('hidden');
-  } else {
-    alertBox.style.display = 'block';
+    if(diff <=0){
+        document.getElementById("countdownText").innerHTML="💖 It's Time! Click Again 💖";
+        clearInterval(countdownInterval);
+        return;
+    }
 
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor((diff/(1000*60*60))%24);
+    const m=Math.floor((diff/(1000*60))%60);
+    const s=Math.floor((diff/1000)%60);
+
+    document.getElementById("countdownText").innerHTML=
+    `${d} Days ${h} Hours ${m} Minutes ${s} Seconds 💕`;
+}
+
+function showEnvelope(){
+
+    if(document.querySelector(".love-envelope")) return;
+
+    const envelope = document.createElement("div");
+    envelope.classList.add("love-envelope");
+    document.body.appendChild(envelope);
+
+    // 🔥 AUTO OPEN AFTER 3 SECONDS
     setTimeout(() => {
-      alertBox.style.display = 'none';
-    }, 2500);
-  }
+
+        envelope.classList.add("open");
+
+        // wait for open animation
+        setTimeout(() => {
+            envelope.remove();
+            startEffects();
+            showQrModal();
+        }, 700);
+
+    }, 3000); // 3 seconds delay
 }
 
-  function moveNoButtonSafely() {
-    const stageRect = stage.getBoundingClientRect();
-    const yesRect = yesBtn.getBoundingClientRect();
 
-    let x, y, safe;
+function showQrModal(){
+    const modal = new bootstrap.Modal(document.getElementById('qrModal'));
+    modal.show();
+}
 
-    do {
-      x = Math.random() * (stage.clientWidth - noBtn.offsetWidth);
-      y = Math.random() * (stage.clientHeight - noBtn.offsetHeight);
+function startEffects(){
+    const effects=document.getElementById("loveEffects");
 
-      const futureRect = {
-        left: stageRect.left + x,
-        right: stageRect.left + x + noBtn.offsetWidth,
-        top: stageRect.top + y,
-        bottom: stageRect.top + y + noBtn.offsetHeight
-      };
+    // Clear old effects
+    effects.innerHTML = "";
 
-      safe =
-        futureRect.right < yesRect.left - 20 ||
-        futureRect.left > yesRect.right + 20 ||
-        futureRect.bottom < yesRect.top - 20 ||
-        futureRect.top > yesRect.bottom + 20;
+    // Hearts
+    for(let i=0;i<25;i++){
+        let heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="💖";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.animationDuration=(3+Math.random()*3)+"s";
+        effects.appendChild(heart);
+    }
 
-    } while (!safe);
+    // Balloons
+    for(let i=0;i<15;i++){
+        let balloon=document.createElement("div");
+        balloon.className="balloon";
+        balloon.innerHTML="🎈";
+        balloon.style.left=Math.random()*100+"vw";
+        balloon.style.animationDuration=(5+Math.random()*4)+"s";
+        effects.appendChild(balloon);
+    }
 
-    noBtn.style.left = x + 'px';
-    noBtn.style.top = y + 'px';
+    // Confetti
+    for(let i=0;i<50;i++){
+        let confetti=document.createElement("div");
+        confetti.className="confetti";
+        confetti.style.left=Math.random()*100+"vw";
+        confetti.style.backgroundColor=`hsl(${Math.random()*360},100%,50%)`;
+        effects.appendChild(confetti);
+    }
+}
 
-    noBtn.innerText = noTexts[textIndex];
-    textIndex = (textIndex + 1) % noTexts.length;
-  }
 </script>
-
-
 
 </body>
 </html>
